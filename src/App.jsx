@@ -13,11 +13,11 @@ const auth = getAuth(app);
 // Kalau mau ganti/tambah toko, sesuaikan juga di Firebase Console (Authentication > Users)
 // dan buat dokumen userRoles yang baru (lihat README).
 const STORE_LOGINS = {
-  velvet: { email: "velvet@cosmetic.com", label: "Velvet cosmetic" },
+  velvet: { email: "velvet@cosmetic.com", label: "Velvet Cosmetic" },
   glowy: { email: "glowy@cosmetic.com", label: "Glowy Cosmetic" },
-  Glam: { email: "glam@cosmetic.com", label: "Glam Cosmetic" },
-  Cerin: { email: "cerin@cosmetic.com", label: "Cerin Cosmetic" },
-  admin: { email: "kediri@online.com", label: "Admin" },
+  glam: { email: "glam@cosmetic.com", label: "Glam Cosmetic" },
+  cerin: { email: "cerin@cosmetic.com", label: "Cerin Cosmetic" },
+  admin: { email: "admin@localhost.com", label: "Admin" },
 };
 
 const ACCOUNT_ID_LABELS = {
