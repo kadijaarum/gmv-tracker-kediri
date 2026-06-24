@@ -216,3 +216,5 @@ username tokonya + password masing-masing** (bukan lagi satu password sama untuk
 - Riwayat Revisi tetap kelihatan untuk semua orang, tapi tombol "Pulihkan" cuma aktif untuk
   Admin atau pemilik data tersebut.
 
+#   g m v t r a c k e r  
+ 
