@@ -13,16 +13,19 @@ const auth = getAuth(app);
 // Kalau mau ganti/tambah toko, sesuaikan juga di Firebase Console (Authentication > Users)
 // dan buat dokumen userRoles yang baru (lihat README).
 const STORE_LOGINS = {
-  velvet: { email: "velvet@cosmetic.com", label: "Velvet Cosmetic" },
-  glowy: { email: "glowy@cosmetic.com", label: "Glowy Cosmetic" },
-  glam: { email: "glam@cosmetic.com", label: "Glam Cosmetic" },
-  cerin: { email: "cerin@cosmetic.com", label: "Cerin Cosmetic" },
-  admin: { email: "admin@localhost.com", label: "Admin" },
+  pretty: { email: "pretty@cosmetic.com", label: "Pretty Cosmetic" },
+  lovie: { email: "lovie@dovey.com", label: "Lovie Dovey" },
+  flowie: { email: "flowie@cosmetic.com", label: "Flowie Cosmetic" },
+  our: { email: "our@beauty.com", label: "Our Beauty Space" },
+  celline: { email: "celline@cosmetic.com", label: "Celline Cosmetic" },
+  kiwie: { email: "kiwie@beauty.com", label: "Kiwie Cosmetic" },
+  twie: { email: "twie@beauty.com", label: "Twie Beauty (Shopee)" },
+  admin: { email: "surabaya@online.com", label: "Admin" },
 };
 
 const ACCOUNT_ID_LABELS = {
-  tt1: "Velvet cosmetic", tt2: "Glowy Cosmetic", tt3: "Glam Cosmetic", tt4: "Our Beauty Space",
-  tt5: "Cerin Cosmetic", tt6: "", shopee: "", admin: "Admin",
+  tt1: "Pretty Cosmetic", tt2: "Lovie Dovey", tt3: "Flowie Cosmetic", tt4: "Our Beauty Space",
+  tt5: "Celline Cosmetic", tt6: "Kiwie Cosmetic", shopee: "Twie Beauty (Shopee)", admin: "Admin",
 };
 
 export default function App() {
