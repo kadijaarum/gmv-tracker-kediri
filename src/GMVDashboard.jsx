@@ -121,31 +121,8 @@ const DEFAULT_ACCOUNTS = [
   { id: "shopee", name: "Shopee", platform: "shopee" },
 ].map((a, i) => ({ ...a, color: ACCOUNT_COLORS[i] }));
 
-// Hasil baca Google Sheets "EC PLAN" (tab Juni 2026, gid=332676377) pada 18 Jun 2026.
-// tt1..tt6 = 6 akun TikTok Shop, shopee = akun Shopee ("Twie" di sheet asal).
-const IMPORT_2026_06 = {
-  names: { tt1: "Pretty", tt2: "Lovie", tt3: "Flowie", tt4: "Our", tt5: "Celline", tt6: "Kiwie", shopee: "Twie" },
-  targets: { tt1: 500000000, tt2: 700000000, tt3: 500000000, tt4: 200000000, tt5: 400000000, tt6: 70000000, shopee: 100000000 },
-  daily: {
-    "2026-06-01": { tt1: 11374058, tt2: 22065091, tt3: 14877523, tt4: 3598827, tt5: 10117785, tt6: 2175274, shopee: 7705544 },
-    "2026-06-02": { tt1: 9512638, tt2: 19517089, tt3: 9035426, tt4: 2791542, tt5: 7607660, tt6: 1084020, shopee: 6545369 },
-    "2026-06-03": { tt1: 7678112, tt2: 19502423, tt3: 9408594, tt4: 1520239, tt5: 7062431, tt6: 1166749, shopee: 6067202 },
-    "2026-06-04": { tt1: 5971051, tt2: 18321128, tt3: 12619179, tt4: 2601519, tt5: 6245876, tt6: 630816, shopee: 6084581 },
-    "2026-06-05": { tt1: 13188526, tt2: 21754958, tt3: 13578734, tt4: 4150136, tt5: 12263500, tt6: 4919240, shopee: 4622511 },
-    "2026-06-06": { tt1: 13211666, tt2: 59621571, tt3: 25139468, tt4: 3978161, tt5: 21371960, tt6: 5402189, shopee: 12651376 },
-    "2026-06-07": { tt1: 13044173, tt2: 33517059, tt3: 30182118, tt4: 3829342, tt5: 14908208, tt6: 5937334, shopee: 13013858 },
-    "2026-06-08": { tt1: 12443929, tt2: 28849970, tt3: 18597985, tt4: 3031505, tt5: 8768623, tt6: 2560191, shopee: 10255356 },
-    "2026-06-09": { tt1: 11440601, tt2: 35770387, tt3: 12005047, tt4: 5326225, tt5: 14621443, tt6: 5053823, shopee: 11841282 },
-    "2026-06-10": { tt1: 8344779, tt2: 33113803, tt3: 16902228, tt4: 3838187, tt5: 13257183, tt6: 4811729, shopee: 8266721 },
-    "2026-06-11": { tt1: 17748826, tt2: 43941863, tt3: 20258880, tt4: 6880739, tt5: 21584958, tt6: 5755734, shopee: 5344514 },
-    "2026-06-12": { tt1: 15340349, tt2: 58548514, tt3: 15422080, tt4: 7639422, tt5: 20602501, tt6: 3802853, shopee: 8697209 },
-    "2026-06-13": { tt1: 15665258, tt2: 58154132, tt3: 14874175, tt4: 7440313, tt5: 18753147, tt6: 3911496, shopee: 6465976 },
-    "2026-06-14": { tt1: 10230249, tt2: 60449285, tt3: 18200461, tt4: 7776771, tt5: 12944065, tt6: 1957030, shopee: 8994707 },
-    "2026-06-15": { tt1: 11969933, tt2: 44419781, tt3: 14674843, tt4: 6588911, tt5: 8744790, tt6: 1177627, shopee: 6024938 },
-    "2026-06-16": { tt1: 12854418, tt2: 57209482, tt3: 17082900, tt4: 9025612, tt5: 30391195, tt6: 1232985, shopee: 4895260 },
-    "2026-06-17": { tt1: 8854434, tt2: 35026119, tt3: 17332300, tt4: 9068196, tt5: 17084616, tt6: 913305, shopee: 5744290 },
-  },
-};
+// Tidak ada data import awal — mulai kosong.
+const IMPORT_2026_06 = null;
 
 // Breakdown sumber GMV — khusus akun TikTok Shop (sesuai kategori di TikTok Shop Compass)
 const GMV_SOURCE_FIELDS = [
@@ -175,15 +152,8 @@ const SHOPEE_SOURCE_FIELD_META = {
 const sourceFieldsFor = (platform) => (platform === "shopee" ? SHOPEE_SOURCE_FIELDS : GMV_SOURCE_FIELDS);
 const sourceMetaFor = (platform) => (platform === "shopee" ? SHOPEE_SOURCE_FIELD_META : SOURCE_FIELD_META);
 
-const FULL_SHOP_NAMES = {
-  tt1: "Pretty Cosmetic",
-  tt2: "Lovie Dovey",
-  tt3: "Flowie Cosmetic",
-  tt4: "Our Beauty Space",
-  tt5: "Celline Cosmetic",
-  tt6: "Kiwie Cosmetic",
-  shopee: "Twie Beauty",
-};
+// Kosongkan atau isi sesuai nama lengkap tokomu (tombol "Isi Nama Lengkap Toko" di Target & Akun)
+const FULL_SHOP_NAMES = {};
 
 const STATUS_META = {
   "on-track": { label: "Sesuai Target", color: PALETTE.teal, bg: PALETTE.tealSoft },
@@ -1843,6 +1813,7 @@ export default function GMVDashboard({ myAccountId = "admin" }) {
   };
 
   const importJune2026 = async () => {
+    if (!IMPORT_2026_06) { showToast("error", "Tidak ada data import yang tersedia."); return; }
     if (!isAdmin) return;
     if (!window.confirm("Ini akan menimpa nama akun, target Juni 2026, dan data GMV harian 1\u201317 Juni 2026 dengan data dari Google Sheets EC PLAN. Data lain (bulan lain, hari 18+) tidak akan terhapus. Lanjutkan?")) return;
     setSaving(true);
