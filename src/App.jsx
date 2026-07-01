@@ -33,21 +33,21 @@ const STORE_LOGINS = {
   toko5: { email: "toko5@area-baru.com",   label: "Nama Toko 5" },   // accountId: tt5
   toko6: { email: "toko6@area-baru.com",   label: "Nama Toko 6" },   // accountId: tt6
   shopee: { email: "shopee@area-baru.com", label: "Shopee" },         // accountId: shopee
-  admin:  { email: "admin@localhost.com",  label: "Admin" },          // accountId: admin
+  admin:  { email: "admin@localhost.com",  label: "admin" },          // accountId: admin
   // ================================
 };
 
 // Label tampilan di header saat login (ikut accountId dari Firestore userRoles)
 // Sesuaikan dengan nama toko yang kamu pakai di atas
 const ACCOUNT_ID_LABELS = {
-  tt1:    STORE_LOGINS.toko1?.label || "Toko 1",
-  tt2:    STORE_LOGINS.toko2?.label || "Toko 2",
-  tt3:    STORE_LOGINS.toko3?.label || "Toko 3",
-  tt4:    STORE_LOGINS.toko4?.label || "Toko 4",
+  tt1:    STORE_LOGINS.toko1?.label || "Velvet",
+  tt2:    STORE_LOGINS.toko2?.label || "Glowy",
+  tt3:    STORE_LOGINS.toko3?.label || "Glam",
+  tt4:    STORE_LOGINS.toko4?.label || "Cerin",
   tt5:    STORE_LOGINS.toko5?.label || "Toko 5",
   tt6:    STORE_LOGINS.toko6?.label || "Toko 6",
   shopee: STORE_LOGINS.shopee?.label || "Shopee",
-  admin:  "Admin",
+  admin:  "admin",
 };
 // ============================================================
 
