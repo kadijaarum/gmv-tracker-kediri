@@ -26,10 +26,10 @@ const auth = getAuth(app);
 //
 const STORE_LOGINS = {
   // === GANTI NAMA TOKO DI SINI ===
-  Velvet: { email: "velvet@cosmetic.com",   label: "Velvet" },   // accountId: tt1
-  Glowy: { email: "glowy@cosmetic.com",   label: "Glowy" },   // accountId: tt2
-  Glam: { email: "glam@cosmetic.com",   label: "Glam" },   // accountId: tt3
-  Cerin: { email: "cerin@cosmetic.com",   label: "Cerin" },   // accountId: tt4
+  velvet: { email: "velvet@cosmetic.com",   label: "Velvet" },   // accountId: tt1
+  glowy: { email: "glowy@cosmetic.com",   label: "Glowy" },   // accountId: tt2
+  glam: { email: "glam@cosmetic.com",   label: "Glam" },   // accountId: tt3
+  cerin: { email: "cerin@cosmetic.com",   label: "Cerin" },   // accountId: tt4
   toko5: { email: "toko5@area-baru.com",   label: "Nama Toko 5" },   // accountId: tt5
   toko6: { email: "toko6@area-baru.com",   label: "Nama Toko 6" },   // accountId: tt6
   shopee: { email: "shopee@area-baru.com", label: "Shopee" },         // accountId: shopee
